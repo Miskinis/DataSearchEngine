@@ -1,0 +1,22 @@
+// From Ce's features
+{ result:"per:stateorprovinces_of_residence", pattern: ( $ENTITY [{lemma:/,/}] [{lemma:/die/}] [{lemma:/in/}] $SLOT_VALUE ), weight: 0.0617075}
+{ result:"per:stateorprovinces_of_residence", pattern: ( $ENTITY [{lemma:/,/}] [{lemma:/who/}] [{lemma:/be/}] [{lemma:/die/}] [{lemma:/in/}] $SLOT_VALUE ), weight: 0.0637513}
+{ result:"per:stateorprovinces_of_residence", pattern: ( $ENTITY [{lemma:/,/}] [{lemma:/who/}] [{lemma:/be/}] [{lemma:/die/}] [{lemma:/in/}] [{lemma:/the/}] $SLOT_VALUE ), weight: 0.24}
+{ result:"per:stateorprovinces_of_residence", pattern: ( $ENTITY [{lemma:/die/}] [{lemma:/in/}] $SLOT_VALUE ), weight: 0.0981595}
+//Rules from Roth's manual patterns https://raw.githubusercontent.com/beroth/relationfactory/master/resources/manual_annotation/context_patterns2012.txt
+{ result: "per:country_of_death", pattern: (  $ENTITY  "died"  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  "was"  "killed"  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  "succumbed"  "to"  []{0,4}  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  "passed"  "away"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  "who"  "died"  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  "who"  "was"  "killed"  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  "who"  "succumbed"  "to"  []{0,4}  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  "who"  "passed"  "away"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  ","  "who"  "died"  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  ","  "who"  "was"  "killed"  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  ","  "who"  "succumbed"  "to"  []{0,4}  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  ","  "who"  "passed"  "away"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  "died"  []{0,4}  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  ","  "who"  "died"  []{0,4}  "in"  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  "died"  []{0,4}  "in"  []{0,4}  ","  $SLOT_VALUE ) }
+{ result: "per:country_of_death", pattern: (  $ENTITY  ","  "who"  "died"  []{0,4}  "in"  []{0,4}  ","  $SLOT_VALUE ) }

@@ -1,0 +1,173 @@
+
+simplilearn.com
+Discover the Differences Between AI vs. Machine Learning vs. Deep Learning
+View More
+10-13 minutes
+
+Artificial Intelligence, Machine Learning, and Deep Learning have become the most talked-about technologies in today’s commercial world as companies are using these innovations to build intelligent machines and applications. And although these terms are dominating business dialogues all over the world, many people have difficulty differentiating between them. This blog will help you gain a clear understanding of AI, machine learning, and deep learning and how they differ from one another. 
+
+Before jumping into the technicalities, let’s look at what tech influencers, industry personalities, and authors have to say about these three concepts.
+
+“AI doesn't have to be evil to destroy humanity – if AI has a goal and humanity just happens in the way, it will destroy humanity as a matter of course without even thinking about it, no hard feelings.” – Elon Musk, Technology Entrepreneur, and Investor.
+
+“Artificial Intelligence, deep learning, machine learning?—?whatever you’re doing if you don’t understand it?—?learn it. Because otherwise, you’re going to be a dinosaur within 3 years.” - Mark Cuban, American entrepreneur, and television personality.
+
+“In deep learning, the algorithms we use now are versions of the algorithms we were developing in the 1980s, the 1990s. People were very optimistic about them, but it turns out they didn’t work too well.” - Geoffrey Hinton, Father of Deep Learning
+
+The three terms are often used interchangeably, but they do not quite refer to the same things.
+
+Here is an illustration designed to help us understand the fundamental differences between artificial intelligence, machine learning, and deep learning.
+
+Artificial Intelligence is the concept of creating smart intelligent machines. 
+
+Machine Learning is a subset of artificial intelligence that helps you build AI-driven applications.
+
+Deep Learning is a subset of machine learning that uses vast volumes of data and complex algorithms to train a model.
+
+Now, let’s explore each of these technologies in detail.
+What is Artificial Intelligence?
+
+Artificial intelligence, commonly referred to as AI, is the process of imparting data, information, and human intelligence to machines. The main goal of Artificial Intelligence is to develop self-reliant machines that can think and act like humans. These machines can mimic human behavior and perform tasks by learning and problem-solving. Most of the AI systems simulate natural intelligence to solve complex problems.
+
+Let’s have a look at an example of an AI-driven product - Amazon Echo.
+
+Amazon Echo
+
+Amazon Echo is a smart speaker that uses Alexa, the virtual assistant AI technology developed by Amazon. Amazon Alexa is capable of voice interaction, playing music, setting alarms, playing audiobooks, and giving real-time information such as news, weather, sports, and traffic reports.
+
+As you can see in the illustration below, the person wants to know the current temperature in Chicago. The person’s voice is first converted into a machine-readable format. The formatted data is then fed into the Amazon Alexa system for processing and analyzing. Finally, Alexa returns the desired voice output via Amazon Echo.
+
+Now that you’ve been given a simple introduction to the basics of artificial intelligence, let’s have a look at its different types.
+Types of Artificial Intelligence 
+
+Reactive Machines - These are systems that only react. These systems don’t form memories, and they don’t use any past experiences for making new decisions.
+
+Limited Memory - These systems reference the past, and information is added over a period of time. The referenced information is short-lived. 
+
+Theory of Mind - This covers systems that are able to understand human emotions and how they affect decision making. They are trained to adjust their behavior accordingly.
+
+Self-awareness - These systems are designed and created to be aware of themselves. They understand their own internal states, predict other people’s feelings, and act appropriately.
+Applications of Artificial Intelligence
+
+machine-translation
+
+    Machine Translation such as Google Translate
+    Self Driving Vehicles such as Google’s Waymo
+    AI Robots such as Sophia and Aibo
+    Speech Recognition applications like Apple’s Siri or OK Google
+
+Now that we have gone over the basics of artificial intelligence, let’s move on to machine learning and see how it works.
+What is Machine Learning?
+
+Machine learning is a discipline of computer science that uses computer algorithms and analytics to build predictive models that can solve business problems. 
+
+As per McKinsey & Co., machine learning is based on algorithms that can learn from data without relying on rules-based programming.
+
+Tom Mitchell’s book on machine learning says “A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.”
+
+So you see, machine learning has numerous definitions. But how does it really work?
+How Does Machine Learning Work?
+
+Machine learning accesses vast amounts of data (both structured and unstructured) and learns from it to predict the future. It learns from the data by using multiple algorithms and techniques. Below is a diagram that shows how a machine learns from data.
+
+Now that you have been introduced to the basics of machine learning and how it works, let’s see the different types of machine learning methods.
+Types of Machine Learning
+
+Machine learning algorithms are classified into three main categories:
+1. Supervised Learning
+
+In supervised learning, the data is already labeled, which means you know the target variable. Using this method of learning, systems can predict future outcomes based on past data. It requires that at least an input and output variable be given to the model for it to be trained. 
+
+Below is an example of a supervised learning method. The algorithm is trained using labeled data of dogs and cats. The trained model predicts whether the new image is that of a cat or a dog.
+
+dog
+
+Some examples of supervised learning include linear regression, logistic regression, support vector machines, Naive Bayes, and decision tree.
+2. Unsupervised Learning
+
+Unsupervised learning algorithms employ unlabeled data to discover patterns from the data on their own. The systems are able to identify hidden features from the input data provided. Once the data is more readable, the patterns and similarities become more evident.
+
+Below is an example of an unsupervised learning method that trains a model using unlabeled data. In this case, the data consists of different vehicles. The purpose of the model is to classify each kind of vehicle.
+
+unlabelled-data
+
+Some examples of unsupervised learning include k-means clustering, hierarchical clustering, and anomaly detection.
+3. Reinforcement Learning
+
+The goal of reinforcement learning is to train an agent to complete a task within an uncertain environment. The agent receives observations and a reward from the environment and sends actions to the environment. The reward measures how successful action is with respect to completing the task goal.
+
+Below is an example that shows how a machine is trained to identify shapes.
+
+identify-shapes
+
+Examples of reinforcement learning algorithms include Q-learning and Deep Q-learning Neural Networks.
+Machine Learning Processes
+
+Machine Learning involves seven steps:
+
+ml-processes
+Machine Learning Applications
+
+fraud
+
+    Sales forecasting for different products
+    Fraud analysis in banking
+    Product recommendations
+    Stock price prediction
+
+Now that we’ve explored machine learning and its applications, let’s turn our attention to deep learning, what it is, and how it is different from AI and machine learning.
+What is Deep Learning?
+
+Deep learning is a subset of machine learning that deals with algorithms inspired by the structure and function of the human brain. Deep learning algorithms can work with an enormous amount of both structured and unstructured data. Deep learning’s core concept lies in artificial neural networks, which enable machines to make decisions. 
+
+The major difference between deep learning vs machine learning is the way data is presented to the machine. Machine learning algorithms usually require structured data, whereas deep learning networks work on multiple layers of artificial neural networks.
+
+This is what a simple neural network looks like:
+
+The network has an input layer that accepts inputs from the data. The hidden layer is used to find any hidden features from the data. The output layer then provides the expected output.
+
+Here is an example of a neural network that uses large sets of unlabeled data of eye retinas. The network model is trained on this data to find out whether or not a person has diabetic retinopathy.
+
+eye-retina
+
+Now that we have an idea of what deep learning is, let’s see how it works.
+How Does Deep Learning Work? 
+
+    Calculate the weighted sums. 
+    The calculated sum of weights is passed as input to the activation function. 
+    The activation function takes the “weighted sum of input” as the input to the function, adds a bias, and decides whether the neuron should be fired or not. 
+    The output layer gives the predicted output. 
+    The model output is compared with the actual output. After training the neural network, the model uses the backpropagation method to improve the performance of the network. The cost function helps to reduce the error rate.
+
+transfer-function
+
+forwardpropagation
+
+In the following example, deep learning and neural networks are used to identify the number on a license plate. This technique is used by many countries to identify rules violators and speeding vehicles.
+
+number-plate
+Types of Deep Neural Networks
+
+Convolutional Neural Network (CNN) - CNN is a class of deep neural networks most commonly used for image analysis.
+
+Recurrent Neural Network (RNN) - RNN uses sequential information to build a model. It often works better for models that have to memorize past data.
+
+Generative Adversarial Network (GAN) - GAN are algorithmic architectures that use two neural networks to create new, synthetic instances of data that pass for real data. A GAN trained on photographs can generate new photographs that look at least superficially authentic to human observers.
+
+Deep Belief Network (DBN) - DBN is a generative graphical model that is composed of multiple layers of latent variables called hidden units. Each layer is interconnected, but the units are not.
+
+    Master Deep Learning, Machine Learning, and other programming languages with Artificial Intelligence Engineer Master’s Program.
+
+Deep Learning Applications
+
+Deep Learning Applications
+
+    Cancer tumor detection
+    Captionbot for captioning an image
+    Music generation
+    Image coloring
+    Object detection
+
+Want to Learn More?
+
+If you want to kick off a career in this exciting field, check out Simplilearn’s Artificial Intelligence Engineer Master’s Program, offered in collaboration with IBM. The program enables you to dive much deeper into the concepts and technologies used in AI, machine learning, and deep learning. You will also get to work on an awesome Capstone Project and earn a certificate in all disciplines in this exciting and lucrative field.

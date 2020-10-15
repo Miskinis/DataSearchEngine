@@ -1,0 +1,55 @@
+
+hellofuture.orange.com
+Reinforcement learning: a powerful AI in ever more areas - Hello Future Orange
+Monday 3rd of February 2020
+7-8 minutes
+
+In taking its inspiration from the human process of acquiring knowledge, reinforcement learning is able to solve extremely complex problems. Focus on this machine learning technique that is pushing back the boundaries of AI.
+
+In psychology, reinforcement aims to stimulate reproduction of a particular behaviour by providing a stimulus to the subject, be it human or animal. If we place a rat in a box where it has to action a lever to get food, it will end up repeating this action each time it is hungry. This is an example of positive reinforcement.
+
+We find the same process in artificial intelligence (AI), with “reinforcement learning” (RL). This method of machine learning consists in establishing a “rewards” and “punishments” system via which the algorithm will learn, by successive experiences, to solve a problem by engaging in the ideal behaviour.
+
+Left to its own devices within a given environment, the autonomous agent (the algorithm) is confronted with several choices. As opposed the other two methods of machine learning – supervised and unsupervised -, it has no (or very little) information on this environment. It therefore starts by performing actions randomly and is rewarded after each good decision.
+
+In order to maximise the amount of rewards received in the long term, it refines its strategy so as to improve the sequence of actions enabling it to accomplish the task it is given in the most optimal way possible.
+
+As is noted by the Data Analytics Post, a specialised publication carried by the MVA (Mathematics, Vision, Learning) Masters programme of the École Normale Supérieure Paris-Saclay, “reinforcement learning differs fundamentally from supervised and unsupervised problems by its interactive and iterative side: the agent tries several solutions (referred to as ‘exploration’), observes the environment’s reaction, and adapts its behaviour to find the best strategy (it ‘exploits’ the results of its explorations). One of the key concepts of these kinds of problems is the balance between these exploration and exploitation phases.”
+
+The strength of this model resides in its ability to solve problems that are reputed unsolvable. It is particularly high-performing when the algorithm is operating in complex and uncertain environments, implicating a virtually infinite number of combinations and a wide range of possible behaviours.
+From the game of Go to data centres
+
+Reinforcement learning isn’t new, but progress has accelerated over the last few years, leading to spectacular successes in various areas. It has also become more powerful when combined with artificial neural networks – thus referred to as Deep Reinforcement Learning (DRL).
+
+The 2016 victory of the AlphaGo program, developed by Google DeepMind, over Korean Lee Sedol, one of the world’s best go players, marked a decisive turning point for reinforcement learning.
+
+The great wealth of combinations and the strategic depth of this two-thousand-year-old game make it a particularly difficult-to-solve AI problem, in the face of which, traditional methods based on brute force provided unsatisfactory results.
+
+After having been trained to “mimic” human players (thanks to the Monte-Carlo method, guided by two deep neural networks), AlphaGo played thousands of games against itself, using DRL to discover new strategies and improve progressively.
+
+The underlying techniques used to solve these kinds of problems (known as “toy problems”) – game of go, ATARI games, handling LEGO, etc. – can be put into practice on real systems.
+
+The possibilities of deep reinforcement learning (DRL) are explored, for example, to address one of the greatest challenges posed by data centres: their energy efficiency. In 2018, two researchers from the Nanyang Technological University, Singapore, published an article on cooling optimization for data centers.
+
+For their part, researchers at the MIT have developed a new DRL method (Decima), which machine learns how to allocate data processing operations across thousands of servers so as to reduce the resources required.
+The future of industry will go via DRL
+
+DRL methods can also be used in industry to control and optimise industrial systems (industrial robot control, energy efficiency optimisation of the logistics chain or of production, preventive maintenance, etc.). Californian startup Bonsai, acquired by Microsoft in 2018, has developed a DRL platform enabling its customers to build, train, and deploy AI models in their factories.
+
+In robotics, reinforcement learning enables improvement of the robots’ movements or of their grip. The algorithm developed within the framework of the Open AI Five project (a team of robots playing Dota 2 against professional players) was used to control a robotic hand. We can also see other applications of reinforcement learning in the areas of health or finance.
+A new paradigm for autonomous driving
+
+Another domain of application in which reinforcement learning is proving to be particularly interesting: autonomous driving, insofar as it enables vehicles to better adapt to their environment thanks to a human approach to driving. After all, a person learns to drive in an average of 35 hours, then they are supposed to be able to manoeuvre on any road, to adapt to any context etc.
+
+In 2018, British startup Wayve published a video showing “the first example of reinforcement learning on-board an autonomous car”. We see a small car learning to follow a straight line on a road it has never been on before, with no predefined rules or plan, just with a camera.
+
+At first, the agent interacts with its environment by performing random actions; the driver intervenes when it makes an error. The algorithm is rewarded each time it makes a new journey with no driver intervention. After eleven attempts, the car manages to stay in the middle of the road.
+
+All across the world, more and more projects are aiming to get future autonomous cars to drive thanks to DRL. Worth mentioning are the “end-to-end with deep reinforcement learning driving” algorithms of the Inria’s Robotics for Intelligent Transportation Systems research team, and the Voyage Deepdrive open source driving simulation platform.
+New horizon
+
+In taking their inspiration from the human process of acquiring knowledge thanks to the trial and error method, reinforcement learning models are now reaching human levels in various types of problem-solving, and are even surpassing humans. According to the MIT Technology Review, who in 2019 published an article called “We analyzed 16,625 papers to figure out where AI is headed next”, they constitute the new horizon of artificial intelligence.
+
+To go further: Learning Zoo
+
+“Reinforcement learning isn’t new but progress has accelerated over the last few years”“A “rewards” and “punishments” system via which the algorithm will learn, by successive experiences”

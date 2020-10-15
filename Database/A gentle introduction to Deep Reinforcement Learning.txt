@@ -1,0 +1,165 @@
+
+towardsdatascience.com
+DRL 01: A gentle introduction to Deep Reinforcement Learning
+Jordi TORRES.AI
+14-18 minutes
+Deep Reinforcement Learning Explained — 01
+Learning the basics of Reinforcement Learning
+
+Jordi TORRES.AI
+
+Image for post
+
+Image for post
+
+    This is the first post of the series “Deep Reinforcement Learning Explained” , that gradually and with a practical approach, the series will be introducing the reader weekly in this exciting technology of Deep Reinforcement Learning.
+
+Deep Reinforcement Learning is the combination of Reinforcement Learning and Deep Learning and it is also the most trending type of Machine Learning at this moment because it is being able to solve a wide range of complex decision-making tasks that were previously out of reach for a machine to solve real-world problems with human-like intelligence.
+
+Today I’m starting a series about Deep Reinforcement Learning that will bring the topic closer to the reader. The purpose is to review the field from specialized terms and jargons to fundamental concepts and classical algorithms in the area, that newbies would not get lost while starting in this amazing area. Specifically in this first publication I will briefly present what Deep Reinforcement Learning is and the basic terms used in this area of research and innovation. Let’s go for it!
+
+Exciting news in Artificial Intelligence (AI) has just happened in recent years. For instance, AlphaGo defeated the best professional human player in the game of Go. Or last year, for instance, our friend Oriol Vinyals and his team in DeepMind showed the AlphaStar agent beat professional players at the game of StarCraft II. Or a few months later, OpenAI’s Dota-2-playing bot became the first AI system to beat the world champions in an e-sports game. All these systems have in common that they use Deep Reinforcement Learning (DRL). But what is AI and DRL?
+
+AI, the main field of computer science in which Reinforcement Learning (RL) falls into, is a discipline concerned with creating computer programs that display humanlike “intelligence”. Machine Learning (ML) is one of the most popular and successful approaches to AI, devoted to creating computer programs that can solve automatically problems by learning from data.
+
+RL is one of the three branches in which ML techniques are generally categorized:
+
+    Supervised Learning is the task of learning from tagged data and its goal is to generalize.
+    Unsupervised Learning is the task of learning from unlabeled data and its goal is to compress.
+    Reinforcement Learning is the task of learning through trial and error and its goal is to act.
+
+Orthogonal to this categorization we can consider a powerful recent approach to ML, called Deep Learning (DL), topic of which we have discussed extensively in previous posts. DL is not a separate branch of ML, so it’s not a different task than those described above. DL is a collection of techniques and methods for using neural networks to solve ML tasks, either Supervised Learning, Unsupervised Learning, or Reinforcement Learning and we can represent it graphically in the following figure:
+
+Image for post
+
+Image for post
+Figure 1: Visual relationship of Deep Learning with the Machine Learning categories.
+
+RL can solve the problems using a variety of ML methods and techniques, from decision trees to SVMs, to neural networks. However, in this series, we only use neural networks; this is what the “deep” part of DRL refers to after all. However, neural networks are not necessarily the best solution to every problem. For instance, neural networks are very data-hungry and challenging to interpret, but without doubts neural networks are at this moment one of the most powerful techniques available, and their performance is often the best.
+
+Learning by interacting with our environment is probably the first approach that comes to our mind when we think about the nature of learning. It is the way we intuit that an infant learns. And we know that such interactions are undoubtedly an important source of knowledge about our environment and ourselves throughout people’s lives, not just infants. For example, when we are learning to drive a car, we are completely aware of how the environment responds to what we do, and we also seek to influence what happens in our environment through our actions. Learning from the interaction is a fundamental concept that underlies almost all learning theories and is the foundation of Reinforcement Learning.
+
+The approach of Reinforcement Learning is much more focused on goal-directed learning from interaction than are other approaches to Machine Learning. The learning entity is not told what actions to take, but instead must discover for itself which actions produce the greatest reward, its goal, by testing them by “trial and error.” Furthermore, these actions can affect not only the immediate reward but also the future ones, “delayed rewards”, since the current actions will determine future situations (how it happens in real life). These two characteristics, “trial and error” search and “delayed reward”, are two distinguishing characteristics of reinforcement learning that we will cover throughout this series of posts.
+
+Reinforcement Learning (RL) is a field that is influenced by a variety of others well stablished fields that tackle decision-making problems under uncertainty. For instance, Control Theory that studies ways to control complex known dynamical systems, however the dynamics of the systems we try to control are usually known in advance, unlike the case of DRL, which are not known in advance. Another field can be Operations Research that also studies decision-making under uncertainty, but often contemplates much larger action spaces than those commonly seen in RL.
+
+As a result, there is a synergy between these fields, and this is certainly positive for the advancement of science. But it also brings some inconsistencies in terminologies, notations and so on. That is why in this section we will provide a detailed introduction to terminologies and notations that we will use throughout the series.
+
+The two core components in a RL system are:
+
+    An Agent, that represents the “solution” , which is a computer program with a single role of making decisions to solve complex decision-making problems under uncertainty.
+    An Environment, that is the representation of a “problem”, which is everything that comes after the decision of the Agent.
+
+For example, in the case of tic-tac-toe game, we can consider that the Agent is one of the players and the Environment includes the board game and the other player.
+
+These two core components interact constantly in a way that the Agent attempts to influence the Environment through actions, and the Environment reacts to the Agent’s actions. How the environment reacts to certain actions is defined by a model which may or may not be known by the Agent, and this differentiates two circumstances:
+
+    When the Agent knows the model we refer to this situation as a model-based RL. In this case, when we fully know the Environment, we can find the optimal solution by Dynamic Programming. This is not the purpose of this post.
+    When the Agent does not know the model, it needs to make decisions with incomplete information; do model-free RL or try to learn the model explicitly as part of the algorithm.
+
+The Environment is represented by a set of variables related to the problem (very dependent on the type of problem we want to solve). This set of variables and all the possible values that they can take are referred to as the state space. A state is an instantiation of the state space, a set of values the variables take.
+
+Due that we are considering that the Agent doesn’t have access to the actual full state of the Environment, it is usually called observation the part of the state that the Agent can observe. However, we will often see in the literature observations and states being used interchangeably and so we will do in this series of posts.
+
+At each state, the Environment makes available a set of actions, from which the Agent will choose an action. The Agent influences the Environment through these actions and the Environment may change states as a response to the action taken by the Agent. The function that is responsible for this mapping is called in the literature transition function or transition probabilities between states.
+
+The Environment commonly has a well-defined task and may provide to the Agent a reward signal as a direct answer to the Agent’s actions. This reward is a feedback of how well the last action is contributing to achieve the task to be performed by the Environment. The function responsible for this mapping is called the reward function or reward probabilities. As we will see later, the Agent’s goal is to maximize the overall reward it receives and so rewards are the motivation the Agent needs in order to act in a desired behavior.
+
+Let’s summarize in the following figure the concepts introduced earlier in the Reinforcement Learning cycle:
+
+Image for post
+
+Image for post
+Figure 2: Reinforcement Learning cycle.
+
+The cycle begins with the Agent observing the Environment (step 1) and receiving a state and a reward. The Agent uses this state and reward to decide the next action to take (step 2). The Agent then sends an action to the Environment in an attempt to control it in a favorable way (step 3). Finally, the environment transitions and its internal state changes as a consequence of the previous state and the Agent’s action (step 4). Then, the cycle repeats.
+
+The task the Agent is trying to solve may or may not have a natural ending. Tasks that have a natural ending, such as a game, are called episodic tasks. Conversely, tasks that do not are called continuing tasks, such as learning forward motion. The sequence of time steps from the beginning to the end of an episodic task is called an episode. As we will see, Agents may take several time steps and episodes to learn how to solve a task. The sum of rewards collected in a single episode is called a return. Agents are often designed to maximize the return.
+
+One of the limitations are that these rewards are not disclosed to the Agent until the end of an episode, what we introduced earlier as “delayed reward”. For example, in the game of tic-tac-toe the rewards for each individual movement (action) are not known until the end of the game. It will be a positive reward if the agent won the game (because the agent had achieved the overall desired outcome) or a negative reward (penalties) if the agent had lost the game.
+
+Another important characteristic, and challenge in Reinforcement Learning, is the trade-off between “exploration” and “exploitation”. Trying to obtain a lot of rewards, an Agent must prefer actions that it has tried in the past and knows that will be effective actions in producing reward. But to discover such actions, paradoxically, it has to try actions that it has not selected never before.
+
+In summary, an Agent has to exploit what it has already experienced in order to obtain as much reward as possible, but at the same time, it also has to explore in order to make select better action in the future. The exploration-exploitation dilemma is a crucial topic, and still an unsolved research topic. We will talk about this trade-off later.
+
+In this section I will introduce Frozen-Lake, a simple grid-world Environment from Gym, a toolkit for developing and comparing RL algorithms. With this example of Environment we will review and clarify the RL terminology introduced until now, and it will be also useful for future posts in this series to have this example.
+The Frozen-Lake Environment
+
+Frozen-Lake Environment is from the so-called grid-world category, when the Agent lives in a grid of size 4x4 (has 16 cells), that means a state space composed by 16 states (0–15) based in the i, j coordinates of the grid-world.
+
+In Frozen-Lake the Agent always starts at a top-left position, and its goal is to reach the bottom-right position of the grid. There are four holes in the fixed cells of the grid and if the Agent gets into those holes, the episode ends and the reward obtained is zero. If the Agent reaches the destination cell, then it obtains a reward of 1 and the episode ends. The following figure shows a visual representation of the Frozen-Lake Environment:
+
+Image for post
+
+Image for post
+Figure 3: Visual representation of the Frozen-Lake Environment.
+
+To reach the goal the Agent has an action space composed by four directions movements: up, down, left, and right. We also know that there is a fence around the lake, so if the Agent tries to move out of the grid world, it will just bounce back to the cell from which it tried to move.
+
+Because the lake is frozen, the world is slippery, so the Agent’s actions do not always turn out as expected — there is a 33% chance that it will slip to the right or to the left. If we want the Agent to move left, for example, there is a 33% probability that it will, indeed, move left, a 33% chance that it will end up in the cell above, and a 33% chance that it will end up in the cell below.
+
+This behaviour of the Environment is reflected in the transition function or transition probabilities presented before. However, at this point we do not need to go into more detail on this function and leave it for later.
+
+As a summary, we could represent visually all this information in the following figure:
+
+Image for post
+
+Image for post
+Figure 4: Esquematic representation of the Reinforcement Learning cicle for the Frozen-Lake example.
+Coding the Environment
+
+Let’s look at how this Environment is represented in Gym. I suggest to use the Colaboratory offered by Google to execute the code described in this post (Gym package is already install). If you prefer use your own Python programming environment you can install Gym using the steps provided here.
+
+The first step is to import gym:
+
+import gym
+
+Then, specify the game from Gym you want to use. We will use the Frozen-Lake game:
+
+env = gym.make('FrozenLake-v0')
+
+The environment of the game can be reset to the initial state using:
+
+env.reset()
+
+And, to see a view of the game state we can use:
+
+env.render()
+
+The surface rendered by render()is presented using a grid like the following:
+
+Image for post
+
+Image for post
+
+Where the highlighted character indicates the position of the Agent in the current time step and
+
+    “S” indicates the starting cell (safe position)
+    “F” indicates a frozen surface (safe position)
+    “H” indicates a hole
+    “G”: indicates de goal
+
+The official documentation can be found here where you can see the detailed usage and explanation of Gym toolkit.
+Coding the Agent
+
+For the moment, we will create the simplest Agent that we can create that only does random actions. For this purpose we will use the action_space.sample() that samples a random action from the action space.
+
+Assume that we allow a maximum of 10 iterations, the following code can be our “dumb” Agent:
+
+import gymenv = gym.make("FrozenLake-v0")
+env.reset()for t in range(10):
+   print("\nTimestep {}".format(t))
+   env.render()
+   a = env.action_space.sample()
+   ob, r, done, _ = env.step(a)
+   if done:
+      print("\nEpisode terminated early")
+      break
+
+If we run this code it will output something like the following lines, where we can observe the Timestep, the action and the Environment state:
+
+Image for post
+
+Image for post
+
+In general, it is very difficult, if not almost impossible, to find an episode of our “dumb” Agent in which with randomly selected actions it can overcome the obstacles and reach the goal cell. So how could we build an Agent to pursue it? This is what we will present in the next instalment of this series, where we will further formalize the problem, and build a new Agent version that is able to learn to reach the goal cell. See you in the next post!

@@ -1,0 +1,172 @@
+
+medium.com
+Deep Reinforcement Learning: Artificial Intelligence, Machine Learning and Deep Learning —…
+Vishnu Vijayan PV
+19-24 minutes
+
+Vishnu Vijayan PV
+
+Deep reinforcement learning (DRL) is poised to revolutionize the field of Artificial Intelligence (AI) and represents a step toward building autonomous systems with a higher-level understanding of the visual world. Currently, Deep Learning is enabling Reinforcement Learning (RL) to scale to problems that were previously intractable, such as learning to play video games directly from pixels.
+To understand Deep Reinforcement Learning, one understand Deep Learning & Reinforcement Learning, for which one must understand Machine Learning, for which one must understand Artificial Intelligence.
+INTRODUCTION
+
+One of the primary goals of the field of Artificial Intelligence (AI) is to produce fully autonomous agents that interact with their environments to learn optimal behaviours, improving over time through trial and error. Crafting AI systems that are responsive and can effectively learn has been a long-standing challenge, ranging from robots, which can sense and react to the world around them, to purely software-based agents, which can interact with natural language and multimedia. A principled mathematical framework for experience-driven autonomous learning is Reinforcement Learning (RL) [1]. Although RL had some successes in the past [2],[3],[4], previous approaches lacked scalability and were inherently limited to fairly low-dimensional problems. These limitations exist because RL algorithms share the same complexity issues as other algorithms: memory complexity, computational complexity, and, in the case of Machine Learning algorithms, sample complexity [5]. What we have witnessed in recent years-the rise of deep learning, relying on the powerful function approximation and representation learning properties of deep neural networks has provided us with new tools to overcoming these problems.
+
+The advent of deep learning has had a significant impact on many areas in machine learning, dramatically improving the state of the art in tasks such as object detection, speech recognition, and language translation [6]. The most important property of deep learning is that deep neural networks can automatically find compact low-dimensional representations (features) of high-dimensional data (e.g., images, text, and audio). Through crafting inductive biases into neural network architectures, particularly that of hierarchical representations, machine-learning practitioners have made effective progress in addressing the curse of dimensionality [7]. Deep learning has similarly accelerated progress in RL, with the use of deep learning algorithms within RL defining the field of DRL.
+
+Deep Learning enables RL to scale to decision-making problems that were previously intractable, i.e., settings with high dimensional state and action spaces. Among recent work in the field of DRL, there have been two outstanding success stories. The first, kickstarting the revolution in DRL, was the development of an algorithm that could learn to play a range of Atari 2600 video games at a superhuman level, directly from image pixels [8]. Providing solutions for the instability of function approximation techniques in RL, this work was the first to convincingly demonstrate that RL agents could be trained on raw, high-dimensional observations, solely based on a reward signal. The second standout success was the development of a hybrid DRL system, AlphaGo, that defeated the human World Champion Lee Sedol, in the game of Go (A Chinese abstract strategy board game for two players, in which the aim is to surround more territory than the opponent)[9], paralleling the historic achievement of IBM’s Deep Blue in chess two decades earlier. Unlike the handcrafted rules that have dominated chess-playing systems, AlphaGo comprised neural networks that were trained using supervised learning and RL, in combination with a traditional heuristic search algorithm. DRL algorithms have already been applied to a wide range of problems, such as robotics, where control policies for robots can now be learned directly from camera inputs in the real world [10], [11], succeeding controllers that used to be hand-engineered or learned from low-dimensional features of the robot’s state.
+
+To learn Deep Reinforcement Learning, one must first know about Deep Learning and Reinforcement Learning, which comes under Machine Learning, which is an approach to achieve Artificial Intelligence. In this report, a brief description is given about all these fields is given before describing Deep Reinforcement Learning.
+
+    According to the father of Artificial Intelligence, John McCarthy, it is “The science and engineering of making intelligent machines, especially intelligent computer programs”.
+
+Basically, Artificial Intelligence (AI) is the ability of a machine or a computer program to think and learn. The concept of AI is based on the idea of building machines capable of thinking, acting, and learning like humans.
+
+AI is accomplished by studying how human brain thinks, and how humans learn, decide, and work while trying to solve a problem, and then using the outcomes of this study as a basis of developing intelligent software and systems.
+Goals of AI
+
+    To Create Expert Systems ? The systems which exhibit intelligent behaviour, learn, demonstrate, explain, and advice its users.
+    To Implement Human Intelligence in Machines ? Creating systems that understand, think, learn, and behave like humans.
+
+Programming Without and With AI
+
+The programming without and with AI is different in following ways ?
+
+Image for post
+
+Image for post
+
+    To learn more about Artificial Intelligence, Read,
+    “Brief Introduction to Artificial Intelligence: Categories and Applications”
+
+Machine Learning is a large sub-field of AI dealing with the field of study that gives computers the ability to learn without being explicitly programmed. This means a single program, once created, will be able to learn how to do some intelligent activities outside the notion of programming. This contrasts with purpose-built programs whose behavior is defined by hand-crafted heuristics that explicitly and statically define their behavior. So, Machine Learning is an approach to achieve Artificial Intelligence.
+
+Machine learning combines data with statistical tools to predict an output. This output is then used by corporate to makes actionable insights. Machine learning is closely related to data mining and Bayesian predictive modeling. The machine receives data as input, use an algorithm to formulate answers.
+Machine Learning vs Traditional Programming
+
+Traditional programming differs significantly from machine learning. In traditional programming, a programmer code all the rules in consultation with an expert in the industry for which software is being developed. Each rule is based on a logical foundation; the machine will execute an output following the logical statement. When the system grows complex, more rules need to be written. It can quickly become unsustainable to maintain.
+
+Machine learning is supposed to overcome this issue. The machine learns how the input and output data are correlated and it writes a rule. The programmers do not need to write new rules each time there is a new data. The algorithms adapt in response to new data and experiences to improve efficacy over time.
+
+Image for post
+
+Image for post
+(a) Traditional Programming, (b) Machine Learning
+
+Even though there are many other algorithms, Machine Learning can be grouped into three broad learning tasks:
+Supervised Learning
+
+The program is “trained” on a pre-defined set of “training examples”, which then facilitate its ability to reach an accurate conclusion when given new data. Here, algorithm uses training data and feedback from humans to learn the relationship of given inputs to a given output. For instance, a practitioner can use marketing expense and weather forecast as input data to predict the sales of cans.
+Supervised learning is used when the output data is known. The algorithm will predict new data. Supervised learning requires that the data used to train the algorithm is already labeled with correct answers.
+Un-Supervised Learning
+
+In unsupervised learning, the training dataset doesn’t have well defined relationships and patterns laid out for program to learn.
+The basis difference between the above-mentioned learnings is that for supervised learning, a portion of output dataset is provided to train the model, in order to generate the desired outputs. On the other hand, in unsupervised learning no such dataset is provided for learning, rather the data is clustered into classes. In unsupervised learning, an algorithm explores input data without being given an explicit output variable (e.g., explores customer demographic data to identify patterns).
+Reinforced Learning
+
+Reinforced learning or Reinforcement Learning, involves learning and updating the parameters of model based on the feedback and errors of the output. Any dataset would be divided into two categories, training set and test set. The program is trained using the well-defined training dataset and is then fine-tuned using feedback from the results of test dataset.
+
+    To learn more about Machine Learning : Types and Applications, Read
+    “Basic Introduction to Machine Learning: Types, Applications & Examples”
+
+Reinforcement learning (RL) is learning what to do, given a situation and a set of possible actions to choose from, in order to maximize a reward. The learner, which we will call agent, is not told what to do, he must discover this by himself through interacting with the environment. The goal is to choose its actions in such a way that the cumulative reward is maximized. So, choosing the best reward now, might not be the best decision, in the long run. That is greedy approaches might not be optimal.
+
+Reinforcement Learning is an approach where an agent learns how to behave in a environment by performing actions and seeing the results. Reinforcement learning is connected to applications for which the algorithm must make decisions and the decisions bear consequences. The goal is defined by maximisation of expected cumulative reward.
+
+The algorithm presents a state, depending on the input data in which a user rewards or punishes the algorithm for the action the algorithm took. The algorithm learns from the reward/punishment and updates itself, this continues.
+Components of Reinforcement learning
+
+Image for post
+
+Image for post
+Block Diagram of Reinforcement Learning
+
+• States: The observation, the agent does on the environment after performing an action
+• Action: An action that the agent performs on the environment based on its observation
+• Reward: The feedback the agent receives based on the action it performed. If the feedback is positive, it receives a reward and if the feedback is negative, it receives a punishment.
+
+There is an agent and an environment. The environment gives the agent a state. The agent chooses an action and receives a reward from the environment along with the new state. This learning process continues until the goal is achieved or some other condition is met.
+
+    To learn more about Reinforcement Learning, read,
+    “What is Reinforcement Learning?: Components, Approaches, Markov Decision Process, Formalisation using MDP”
+
+Deep Learning comes in the area of Neural Networks.
+Within the machine learning fields, there is an area often referred to as brain-inspired computation. Human brain is one of the best ‘machines’ we know for learning and solving problems. The brain-inspired technique is indeed inspired by how our human brain works. It is believed that the main computational element of our brain is neuron. The complex connected network of neurons forms the basis of all the decisions made based on the various information gathered. This is exactly what Artificial Neural Network technique does.
+
+Within the domain of neural networks, there is an area called Deep Learning (DL), in which neural networks have more than three layers, i.e. more than one hidden layer. These neural networks used in Deep learning are called Deep Neural Networks (DNNs). DL algorithms are similar to how nervous system structured where each neuron connected each other and passing information. DL models work in layers and a typical model at least have three layers and each layer accepts the information from previous and pass it on to the next one.
+
+Deep learning models tend to perform well with amount of data whereas old machine learning models stops improving after a saturation point.
+
+Image for post
+
+Image for post
+
+In mathematical terms, all machine learning is AI, but not all AI is machine learning. Similarly, all deep learning is machine learning but not all machine learning is deep learning.
+
+• Artificial Intelligence is human intelligence exhibited by machines
+• Machine Learning is an approach to achieve Artificial Intelligence
+• Deep Learning is a technique for implementing Machine Learning
+
+Image for post
+
+Image for post
+
+    To learn more about Deep Learning, read “Deep Learning: Relationship between Artificial Intelligence, Machine Learning & Deep Learning”
+
+Deep Reinforcement Learning is a new research track within the field of Machine Learning.
+While neural networks are responsible for recent breakthroughs in problems like computer vision, machine translation and time series prediction — they can also combine with reinforcement learning algorithms to create something astounding like AlphaGo [9].
+
+Reinforcement algorithms that incorporate deep learning can beat world champions at the game of Go as well as human experts playing numerous Atari video games [8]. While that may sound trivial, it’s a vast improvement over their previous accomplishments, and the state of the art is progressing rapidly.
+
+Like a human, our agents learn for themselves to achieve successful strategies that lead to the greatest long-term rewards. This paradigm of learning by trial-and-error, solely from rewards or punishments, is known as Reinforcement Learning (RL). Also like a human, our agents construct and learn their own knowledge directly from raw inputs, such as vision, without any hand-engineered features or domain heuristics. This is achieved by Deep Learning of neural networks. Many of the successes in DRL have been based on scaling up prior work in RL to high-dimensional problems. This is due to the learning of low-dimensional feature representations and the powerful function approximation properties of neural networks. By means of representation learning, DRL can deal efficiently with the curse of dimensionality, unlike tabular and traditional nonparametric methods [7]. For instance, convolutional neural networks (CNNs) can be used as components of RL agents, allowing them to learn directly from raw, high-dimensional visual inputs. In general, DRL is based on training deep neural networks to approximate the optimal policy ?* and/or the optimal value functions V*, Q*, and A*.
+
+Image for post
+
+Image for post
+Applications
+
+There only a few applications as Deep Reinforcement Learning is mostly in experimental phase. Some of it includes,
+
+    DeepMind’s algorithms to play Atari Games
+    AlphaGo: In October 2015, AlphaGo became the first program to defeat a professional human player. In March 2016, AlphaGo defeated Lee Sedol (the strongest player of the last decade with an incredible 18 world titles) by 4 games to 1, in a match that was watched by an estimated 200 million viewers.
+    Gaming
+
+Scope of Deep Reinforcement Learning
+
+    Neural Scene Representation & Rendering to be implemented in Self-Driving Cars by DeepMind.
+
+Image for post
+
+Image for post
+
+Image for post
+
+Image for post
+DeepMind’s Neural Rendering of a maze
+
+    Xue Bin (Jason) Peng and Angjoo Kanazawa framework for agents to learn acrobatics from YouTube videos.
+
+    To learn more about Deep Reinforcement Learning, Read, “Deep Reinforcement Learning: Value Functions, DQN, Actor-Critic method, Back-propagation through stochastic functions”
+
+Despite the successes of DRL, many problems need to be addressed before these techniques can be applied to a wide range of complex real-world problems [20]. Recent work with (nondeep) generative causal models demonstrated superior generalization over standard DRL in some benchmarks, achieved by reasoning about causes and effects in the environment. Although DRL has already been combined with AI techniques, such as search [9] and planning, a deeper integration with other traditional AI approaches promises benefits such as better sample complexity, generalization, and interpretability. In time, we also hope that our theoretical understanding of the properties of neural networks (particularly within DRL) will improve, as it currently lags far behind practice. To conclude, it is worth revisiting the overarching goal of all of this research: the creation of general-purpose AI systems that can interact with and learn from the world around them. Interaction with the environment is simultaneously the advantage and disadvantage of RL. While there are many challenges in seeking to understand our complex and ever-changing world, RL allows us to choose how we explore it. In effect, RL endows agents with the ability to perform experiments to better understand their surroundings, enabling them to learn even high-level causal relationships. The availability of high-quality visual renderers and physics engines now enables us to take steps in this direction, with works that try to learn intuitive models of physics in visual environments. Challenges remain before this will be possible in the real world, but steady progress is being made in agents that learn the fundamental principles of the world through observation and action. Perhaps, then, we are not too far away from AI systems that learn and act in more human-like ways in increasingly complex environments.
+
+[1] R. S. Sutton and A. G. Barto, Reinforcement Learning: An Introduction. Cambridge, MA: MIT Press, 1998.
+[2] N. Kohl and P. Stone, “Policy gradient reinforcement learning for fast quadrupedal locomotion,” in Proc. IEEE Int. Conf. Robotics and Automation, 2004, pp. 2619–2624.
+[3] A. Y. Ng, A. Coates, M. Diel, V. Ganapathi, J. Schulte, B. Tse, E. Berger, and E. Liang, “Autonomous inverted helicopter flight via reinforcement learning,” in Proc. Int. Symp. Experimental Robotics, 2006, pp. 363–372.
+[4] S. Singh, D. Litman, M. Kearns, and M. Walker, “Optimizing dialogue management with reinforcement learning: Experiments with the NJFun system,” J. Artificial Intell. Res., vol. 16, pp. 105–133, Feb. 2002.
+[5] A. L. Strehl, L. Li, E. Wiewiora, J. Langford, and M. L. Littman, “PAC model-free reinforcement learning,” in Proc. Int. Conf. Machine Learning, 2006, pp. 881–888.
+[6] Y. LeCun, Y. Bengio, and G. Hinton. “Deep learning,” Nature, vol. 521, no. 7553, pp. 436–444, 2015.
+[7] Y. Bengio, A. Courville, and P. Vincent, “Representation learning: a review and new perspectives,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 35, no. 8, pp. 1798–1828, 2013.
+[8] V. Mnih, K. Kavukcuoglu, D. Silver, A. A. Rusu, J. Veness, M. G. Bellemare, A. Graves, M. Riedmiller, et al., “Human-level control through deep reinforcement learning,” Nature, vol. 518, no. 7540, pp. 529–533, 2015.
+[9] D. Silver, A. Huang, C. J. Maddison, A. Guez, L. Sifre, G. van den Driessche, J. Schrittwieser, I. Antonoglou, et al., “Mastering the game of go with deep neural networks and tree search,” Nature, vol. 529, no. 7587, pp. 484–489, 2016.
+[10] S. Levine, C. Finn, T. Darrell, and P. Abbeel, “End-to-end training of deep visuomotor policies,” J. Mach. Learning Res., vol. 17, no. 39, pp. 1–40, 2016.
+[11] S. Levine, P. Pastor, A. Krizhevsky, and D. Quillen, “Learning hand-eye coordination for robotic grasping with deep learning and large-scale data collection,” in Proc. Int. Symp. Experimental Robotics, 2016, pp. 173–184.
+[12] www.indiegogo.com/projects/pillo-your-personal-home-health-robot#/
+[13] www.indiegogo.com/projects/alpha-2-the-first-humanoid-robot-for-the-family
+[14] www-03.ibm.com/ibm/history/ibm100/us/en/icons/deepblue/
+[15] G. Tesauro, “Temporal difference learning and TD-gammon,” Commun. ACM, vol. 38, no. 3, pp. 58–68, 1995.
+[16] J. Schulman, S. Levine, P. Abbeel, M. Jordan, and P. Moritz, “Trust region policy optimization,” in Proc. Int. Conf. Machine Learning, 2015, pp. 1889–1897.
+[17] M. G. Bellemare, Y. Naddaf, J. Veness, and M. Bowling, “The arcade learning environment: an evaluation platform for general agents,” in Proc. Int. Joint Conf. Artificial Intelligence, 2015, pp. 253–279.
+[18] M. Riedmiller, “Neural fitted q iteration — First experiences with a data efficient neural reinforcement learning method,” in Proc. European Conf. Machine Learning, 2005
+[19] S. Lange, M. Riedmiller, and A. Voigtlander, “Autonomous reinforcement learning on raw visual input data in a real world application,” in Proc. Int. Joint Conf. Neural Networks, 2012
+[20] B. M. Lake, T. D. Ullman, J. B. Tenenbaum, and S. J. Gershman, “Building machines that learn and think like people,” Behavioral Brain Sci., pp. 1–101, 2016

@@ -1,0 +1,111 @@
+
+towardsdatascience.com
+A reinforcement learning approach towards sentient AI
+Rohit Vijayakumar
+10-12 minutes
+The road to Artificial General Intelligence by uncovering the secrets of cognition
+
+Rohit Vijayakumar
+
+Recently I was going through some lectures related to artificial general intelligence and I came across the GOTO Copenhagen conference where Danny Lange — VP of AI and ML at Unity Technologies discusses the role of intelligence in biological evolution and learning. I found his talk very interesting and would like to share with you some of the intuition I gained.
+
+The agents existing today cannot really be classified as being intelligent. For example, personal assistants such as Siri and Alexa use some machine learning to do speech recognition and some other activities but they are basically hard-coded pieces of software which were engineered by people for people.
+
+A couple of years back Amazon staffed their Alexa project with around 10,000 employees in total so a lot of backend is actually run by people. It appears as if the computer is performing certain tasks but it is really the people doing these tasks which means it is extremely dependent on people to perform well. Even Amazon and Netflix predictions are just algorithms based on recommendations made by smart people for picking out various items. Fraud detection, Equity trading and Facebook feed are all such smart algorithms made by people but they are not really intelligent as such at all.
+
+Image for post
+
+Image for post
+source: https://unsplash.com/
+
+Humans are often thought of as being the epitome of intelligence, but machines will eventually surpass humans. The processing power and memory of supercomputers already exceed humans, and human memory is really very poor compared to computers. So, if these extremely smart personal assistants such as Alexa or even humanoid robots such as Sophia can’t be classified as being intelligent, then what makes intelligence?
+
+    Dictionary defines intelligence roughly as:
+
+    “the ability to acquire knowledge and skills”
+
+The only real intelligence that is known to mankind is of biological systems. Animals and human beings possess intelligence. Nature gave life intelligence but why are humans really intelligent or what could be the purpose of being intelligent. It is basically based on a few principles of which one is entropy.
+
+So, for a biological organism to maintain itself it needs to consume energy to maintain its complex structure. There is this continuous flow of energy taking place in the world where one living being eats to consume energy and maintain order which in turn could be eaten by another living being.
+
+Another principle is all living beings need to multiply and become abundant and most importantly should be aware of physics, in particular inertia and gravity. For example, humans need to be aware of not falling down while walking. It is a constant need to live up to these principles that we require intelligence. Humans can hence be seen as basically agents who operate on the environment and changes the environment to benefit themselves.
+
+Image for post
+
+Image for post
+source: https://unsplash.com/
+
+Nature invented the brain which is fundamentally just infrastructure and through the brain it implemented intelligence through chemical mechanisms, cellular structure, multicellular organisms which communicate with each other using chemical mechanisms, the ability to control muscles and sensory organs which provide smell, touch, taste, hearing and sight.
+
+Things like sight came a very long time ago, perhaps maybe just over a period of 350 thousand years from light-sensitive cells to the evolution of an eye. So, nature constantly evolved these things to be become more efficient and that is where intelligence comes from and the current AI systems have been very far from having the intelligence capabilities described above.
+
+This article proposes a framework for developing these systems in machine learning agents. The framework builds upon neural networks and reinforcement learning (RL) but does not use any of the standard RL approaches. This system exhibits forms of intelligence existing in biological systems and uses a learning approach different from the standard ones to closely resemble the learning process in the real world. A portion of the proposed system would be similar to that used in the world class AlphaGo Zero and AlphaZero, which was able to learn the game Go in about three days with no human input (and chess in just 4 hours).
+
+    It is known that intelligence exists in humans (and other animals) and it is based on neural networks and therefore to invent artificial intelligence you have to turn to nature. A 3D-engine with a spatial environment, physics engine, gravity, inertia, collisions, etc which is a controlled and closed ecosystem will closely resemble the real world. So, think of a game engine as such a biodome for AI development.
+
+Image for post
+
+Image for post
+source: https://unsplash.com/
+
+Companies like Unity have built an open-source framework called ML agents where it is possible to experiment with all these concepts like being aware of physics, navigate to solve problems and achieve something. There has been a lot of research in machine learning and AI around visual understanding like first person shooter games where there is a bot trying to be really good at shooting. There has also been a lot of research in motion control where robots learn how to walk, in cognitive challenges like DeepMind’s AlphaGo which is remarkable. However, they are all truly limited. An ecosystem like the one being used by Unity has a diversity of tools and existing assets that are extremely more complex than what has been used so far.
+Demis Hassabis — co founder and CEO of DeepMind said:
+
+    “As a former video game designer, myself, I could not be more excited to be collaborating with Unity, creating virtual environments for developing and testing the kind of smart flexible algorithms we need to tackle real world problems.”
+
+Video games can actually progress AI much more than anything else because it is very close to the real world that nature has had around for half a billion years with environments having all the fundamentals so it is not be discarded of having no contribution to the development of AI.
+
+Agent-driven exploration using both extrinsic and intrinsic rewards have generated a lot of talk among the AI community and it is one step closer to artificial general intelligence (AGI).
+
+    Extrinsic rewards pertain to capturing, achieving or collecting something from the environment. It is seen in various games where the agent has to collect points or gold coins.
+
+It is specific to the environment and it compared to the idea of getting “rich” which is an extrinsic reward. Intrinsic rewards refer to curiosity, patience or impatience, happiness, resilience, love, empathy, etc. These are very important because all human beings live based on these intrinsic rewards, something that nature developed specific to the agent. All humans and animals have intrinsic reward based on which they survive. It can be compared with extrinsic rewards as getting “happy” vs getting “rich”.
+
+There are certain limits to standard reinforcement learning where ridiculous improbable scenarios that are very unlikely take place and then something even more unlikely also happens, so all these unlikely scenarios come together to form one incredibly improbable scenario called sparse reward space.
+
+    Take a scenario where an agent is in this highly improbable scenario. An agent comes into a house, the house has many rooms and in a random room, a push button appears. When the agent pushes the button, a pyramid will appear in another room. There are also some static pyramids to fool the agent. The agent has to go and knock over that pyramid and get the gold box on top of the pyramid. Now the agent has to do all these scenarios.
+
+Image for post
+
+Image for post
+source: https://gotocph.com
+
+With a standard reinforcement learning algorithm, exploring randomly, it will not learn it because it will not stumble on this random chain of events.
+
+Hence we need something else to help the agent understand this complex scenario and achieve its goal in this environment.
+
+But nature solved this because humans can learn such improbable scenarios and the results of them. The solution to this problem is to add the strategy of exploration, to favor the agent over randomness and to think about intrinsic rewards. This is where the intrinsic reward of curiosity comes in.
+
+The quest for surprisal-curiosity can be mathematically defined as follows:
+
+    ? Observations xt and xt+1
+
+    ? Action at such that xt transitions to xt+1
+
+    ? Embedding !(x)
+
+    ? Prediction p(!(xt+1) | xt ,at )
+
+    ? Reward rt = — log p(“(xt+1) | xt, at
+
+    ? Train to maximize rt
+
+    ? Agent now favors transitions with high prediction error
+
+Image for post
+
+Image for post
+source: https://gotocph.com
+
+So normally when a machine learning model is made, the main focus is to minimize the error so that the predictions become as good as possible. Now instead of minimizing the error, if you maximize the error rate, it means the model tried to make a prediction about the environment and now it is going to pick the one it is going to make the maximum error on.
+
+    That is, now transitions that have high prediction error in them is favored and the agent will not be sure if it does something and hence it does it (or out of curiosity).
+
+So, in this scenario with just extrinsic rewards, the agent is doing random exploration and it does not figure much out. When intrinsic reward, curiosity is only given to the agent, it does not solve the problem yet but it goes from room to room and knocks over the static pyramids on seeing them to know what will happen if it knocks the pyramid over. The agent is hence more explorative and it is constantly looking for what it knows least about.
+
+Image for post
+
+Image for post
+source: https://gotocph.com
+
+Now the agent is given an intrinsic reward of curiosity as well as an extrinsic reward, that is be curious and get rich at the same time. After training, it is observed that the agent is much more directed, it looks and finds the push button, it does not get fooled by all the other pyramids and it only knocks over the golden pyramid and solves the problem.

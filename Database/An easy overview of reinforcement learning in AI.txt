@@ -1,0 +1,53 @@
+
+thinkautomation.com
+An easy overview of reinforcement learning in AI - ThinkAutomation
+4-5 minutes
+
+Do you know how machines become artificially intelligent? From the structure of supervised learning to the networks of deep learning, there are many types of machine learning (ML) that let machines sharpen their brainpower.
+
+One such branch of ML is ‘reinforcement learning’ or RL. But what exactly is reinforcement learning, and how is it different from other types of machine learning?
+
+Here’s an easy overview.
+Reinforcement learning
+
+Reinforcement learning is where a system learns by being ‘rewarded’ for good decisions. These rewards reinforce the right decisions and behaviours, so the machine repeats them next time. Gradually, reinforcement learning allows machines to find the best possible decision or action to take in each situation.
+
+Rather than being spoon-fed the correct course of action, reinforcement learning allows machines to learn by trial and error. Success is measured against the reward given for a given behaviour or output. Over time, the system learns to replicate the behaviours that reap the biggest rewards.
+
+This is a form of unsupervised learning, meaning that the system is learning and adjusting its behaviour on its own.
+Drawing parallel
+
+Today, we use reinforcement learning to train our AI. But the reinforcement tactic itself is an age-old intelligence training method.
+
+Scientists training rats in labs, for example, reward the behaviour they seek. So, when the rat does something ‘good’, it gets a treat. But it’s up to the rat to work out what behaviours are making you dispense this reward. As their training progresses, the rat will associate X behaviour with good things (the reward).
+
+For machines, this learning process means testing different decisions and choosing the ones that result in the biggest rewards. But how do you ‘reward’ a computer?
+Finding value
+
+Reinforcement learning works by prescribing value to each action or decision that a machine makes. Sometimes, it can take several actions for the machine to find the answer or solution to a problem.
+
+So, a machine starts in its initial ‘state’. From here, there are a few actions that it could take. It makes a decision and performs one of these actions. As a result, it’s now in a new state, where it receives reward feedback. This is known as the reinforcement signal.
+
+There are many different states that the machine could reach, depending on the actions it takes. If the machine has made positive progress, it gets a positive reward. If it’s made a poor decision, it gets a negative reward.
+
+The reward doesn’t always happen right away. It can come after a few decisions are made, once value is reached. The system is rewarded based on its overall performance, rather than for each step taken. So, it takes substantial trial and error before the system can determine the best decisions to make.
+
+Note: at no point is the system told what actions to take. Instead, it must try each action and determine which is the best based on the feedback rewards earned.
+Reinforcement learning vs supervised learning
+
+Another way to understand reinforcement learning is to understand how it differs from other machine learning methods. The answer lies in data use.
+
+With supervised machine learning, the system has training data with the answers provided. It then learns by recognising patterns between its examples and applying them to new input.
+
+In reinforcement learning, the system learns from experience. It doesn’t have the answers, it must find the best outcomes on its own. This means that it’s possible for the system to find more than one correct answer.
+No right answer
+
+There’s often more than one right answer when it comes to real-world problems. And with reinforcement learning, machines are increasingly able to find the best ones for themselves.
+Useful links
+
+ELI5: what is deep learning?
+
+What is machine learning? A beginner’s guide
+
+Automation and the concept of mental energy
+Post navigation
