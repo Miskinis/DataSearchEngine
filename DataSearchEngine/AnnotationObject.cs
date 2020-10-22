@@ -2,7 +2,7 @@
 
 namespace DataSearchEngine
 {
-    public class AnnotationSerializer
+    public class AnnotationObject
     {
         public Sentence[] sentences  { get; set; }
 

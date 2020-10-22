@@ -14,30 +14,44 @@ namespace DataSearchEngine
 {
     public static class Extensions
     {
-        public static void ConsoleWriteLines(IEnumerable<string> words)
+        public static string GetIndentString(int indent)
         {
+            string indentString = "";
+            for (int i = 0; i < indent; i++)
+            {
+                indentString += "\t";
+            }
+
+            return indentString;
+        }
+        public static void ConsoleWriteLines(IEnumerable<string> words, int indent = 0)
+        {
+            string indentString = GetIndentString(indent);
+
             foreach (string word in words)
             {
-                Console.WriteLine(word);
+                Console.WriteLine($"{indentString} {word}");
             }
         }
-        
-        public static void ConsoleWriteWords(IEnumerable<string> words)
+
+        public static void ConsoleWriteWords(IEnumerable<string> words, int indent = 0)
         {
+            string indentString = GetIndentString(indent);
+            
             foreach (string word in words)
             {
-                Console.Write($"{word} ");
+                Console.Write($"{indentString}{word} ");
             }
         }
 
         //Find result by matching all words in query given with database
-        public static List<int> FindAll(this Dictionary<string, HashSet<int>> invertedIndexDatabase, List<string> searchQuery)
+        public static List<int> FindAll(Dictionary<string, HashSet<int>> database, List<string> searchQuery)
         {
             var searchResults = new Dictionary<int, int>();
 
             foreach (string word in searchQuery)
             {
-                if (invertedIndexDatabase.TryGetValue(word, out var documentIndexes) == false) continue;
+                if (database.TryGetValue(word, out var documentIndexes) == false) continue;
 
                 foreach (int documentIndex in documentIndexes)
                 {
@@ -56,7 +70,7 @@ namespace DataSearchEngine
         }
 
         //Find result by matching any words in query given with database
-        public static HashSet<string> FinAny(this Dictionary<string, List<string>> invertedIndexDatabase, IEnumerable<string> searchQuery)
+        public static HashSet<string> FindAny(this Dictionary<string, List<string>> invertedIndexDatabase, IEnumerable<string> searchQuery)
         {
             var results = new HashSet<string>();
 
@@ -75,7 +89,9 @@ namespace DataSearchEngine
     internal class EntryPoint
     {
         public static StanfordCoreNLP Pipeline;
-        public static Dictionary<string, HashSet<int>> InvertedIndexDatabase;
+        public static Dictionary<string, HashSet<int>> SingleValueDatabase;
+        public static Dictionary<string, HashSet<int>> NGramDatabase;
+        private static int _gramCount = 2;
 
         //For debugging
         public static List<string> DocumentNames;
@@ -84,13 +100,34 @@ namespace DataSearchEngine
         private static void Main(string[] args)
         {
             //-------------------------------------------------------------------------
+            string modelsPath       = "";
+            string documentPath     = "";
             
-            string modelsPath = @"C:\Users\Eimantas\Documents\Projects\Data Search AI\DataSearchEngine\stanford-corenlp-3.7.0-models";
+            if(args.Length == 0)
+            {
+                string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+                modelsPath       = Path.Combine(projectDirectory, "stanford-corenlp-3.7.0-models");
+                documentPath     = Path.Combine(projectDirectory, "Database");
+            }
+
+            //Get models directory
             if (args.Length > 0)
+            {
                 modelsPath = args[0];
+            }
+            
+            if (args.Length > 1)
+            {
+                documentPath = args[1];
+            }
+            
+            if (args.Length > 2)
+            {
+                _gramCount = int.Parse(args[2]);
+            }
 
             Console.WriteLine($"Initializing {nameof(StanfordCoreNLP)}...\n");
-            
+
             // Annotation pipeline configuration
             var props = new Properties();
             props.setProperty("annotators", "tokenize, ssplit, pos, lemma,");
@@ -102,20 +139,15 @@ namespace DataSearchEngine
             Pipeline = new StanfordCoreNLP(props);
             Directory.SetCurrentDirectory(curDir);
 
-
-            //Get documents directory
-            string documentPath = @"C:\Users\Eimantas\Documents\Projects\Data Search AI\DataSearchEngine\DataToSearchFor";
-            if (args.Length > 1)
-                documentPath = args[1];
-            
-            var    files        = Directory.GetFiles(documentPath);
+            var files = Directory.GetFiles(documentPath);
 
             //Initialize database
-            InvertedIndexDatabase = new Dictionary<string, HashSet<int>>();
-            DocumentNames         = new List<string>(files.Length);
+            SingleValueDatabase = new Dictionary<string, HashSet<int>>(10000);
+            NGramDatabase       = new Dictionary<string, HashSet<int>>(10000);
+            DocumentNames       = new List<string>(files.Length);
 
             Console.WriteLine("\nBuilding Database...\n");
-            
+
             //Populate database
             for (int i = 0; i < files.Length; i++)
             {
@@ -124,19 +156,16 @@ namespace DataSearchEngine
 
                 string content = File.ReadAllText(file);
 
-                var annotation = new Annotation(content);
-                Pipeline.annotate(annotation);
-                
-                using var stream = new ByteArrayOutputStream();
-                Pipeline.jsonPrint(annotation, new PrintWriter(stream));
-                string serialized   = stream.toString().Replace("\n", "");
-                var    deserialized = Newtonsoft.Json.JsonConvert.DeserializeObject<AnnotationSerializer>(serialized);
-                AssignIndex(deserialized.lemmas, i);
-                stream.close();
+
+                var deserializedDatabase = Annotate(content);
+
+                var lemmas = FilterContent(deserializedDatabase.lemmas);
+                AssignIndex(lemmas, i, ref SingleValueDatabase);
+                AssignIndex(CreateNGrams(lemmas), i, ref NGramDatabase);
             }
-            
+
             Console.WriteLine("\n---Database Built Successfully---\n");
-            
+
             //Console Input --- search query
             Console.WriteLine("Input Your Search Query");
             string query = Console.ReadLine();
@@ -146,62 +175,106 @@ namespace DataSearchEngine
                 Console.ReadLine();
                 return;
             }
+            Console.WriteLine();
             
-            // Annotation
-            var queryAnnotation = new Annotation(query);
-            Pipeline.annotate(queryAnnotation);
+            var deserializedSearchQuery = Annotate(query);
 
-            // Result - Print
-            using (var stream = new ByteArrayOutputStream())
+            //Find results
+            var filteredSearchQuery = FilterContent(deserializedSearchQuery.lemmas);
+            
+            var searchQueryNGrams  = CreateNGrams(filteredSearchQuery);
+            Console.WriteLine($"Searching with Grams={_gramCount}");
+            ShowResults(FindAllAndMapResults(searchQueryNGrams, NGramDatabase), searchQueryNGrams);
+            
+            Console.WriteLine("\n<********************>\n");
+            
+            Console.WriteLine($"Searching by single values");
+            ShowResults(FindAllAndMapResults(filteredSearchQuery, SingleValueDatabase), filteredSearchQuery);
+
+            Console.ReadLine();
+        }
+
+        public static void ShowResults(List<string> results, List<string> searchQuery)
+        {
+            Console.WriteLine("Search Query");
+            Extensions.ConsoleWriteLines(searchQuery, 1);
+
+            if (results.Count == 0)
             {
-                Pipeline.jsonPrint(queryAnnotation, new PrintWriter(stream));
-
-                //-----
-                string serialized   = stream.toString().Replace("\n", "");
-                var    deserialized = Newtonsoft.Json.JsonConvert.DeserializeObject<AnnotationSerializer>(serialized);
-                //-----
-
-                //Find results by "All" condition
-                var indexedResults = InvertedIndexDatabase.FindAll(FilterContent(deserialized.lemmas));
-                Console.Write($"\n--->Your input search query after lemmatization:\t");
-                Extensions.ConsoleWriteWords(deserialized.lemmas);
-                Console.WriteLine();
-
-                //Map document indexes back to readable names
-                var results = new List<string>(indexedResults.Count);
-                results.AddRange(indexedResults.Select(result => DocumentNames[result]));
-
-                //Console Output --- search results
-                if (results.Count == 0)
-                {
-                    Console.WriteLine("\nNo Results Found");
-                }
-                else
-                {
-                    Console.WriteLine("\nResults:");
-                    Console.WriteLine();
-                    Extensions.ConsoleWriteLines(results);
-                    Console.WriteLine();
-                }
-                
-                //-----
-                stream.close();
+                Console.WriteLine("\nNo Results Found");
+            }
+            else
+            {
+                Console.WriteLine("\nResults:");
+                Console.WriteLine("<-------------------->");
+                Extensions.ConsoleWriteLines(results);
+                Console.WriteLine("<-------------------->");
             }
         }
 
+        public static List<string> FindAllAndMapResults(List<string> searchQuery, Dictionary<string, HashSet<int>> database)
+        {
+            var foundResults       = Extensions.FindAll(database, searchQuery);
+            var mappedResult = new List<string>(foundResults.Count);
+            mappedResult.AddRange(foundResults.Select(result => DocumentNames[result]));
+            return mappedResult;
+        }
+        
+        public static AnnotationObject Annotate(string content)
+        {
+            // Annotation
+            var annotation = new Annotation(content);
+            Pipeline.annotate(annotation);
+
+            // Result - Print
+            using var stream = new ByteArrayOutputStream();
+
+            Pipeline.jsonPrint(annotation, new PrintWriter(stream));
+
+            //-----
+            string serialized   = stream.toString().Replace("\n", "");
+            var    deserialized = Newtonsoft.Json.JsonConvert.DeserializeObject<AnnotationObject>(serialized);
+
+            //-----
+            stream.close();
+
+            return deserialized;
+        }
+
+        public static List<string> CreateNGrams(List<string> content)
+        {
+            var grams = new List<string>(content.Count);
+
+            int indexCount = content.Count - (_gramCount - 1);
+
+            for (int index = 0; index < indexCount; index++)
+            {
+                string gram = content[index];
+
+                for (int j = 1; j < _gramCount; j++)
+                {
+                    gram = $"{gram} {content[index + j]}";
+                }
+
+                grams.Add(gram);
+            }
+
+            return grams;
+        }
+
         //Create or assign indexes for words and documents
-        private static void AssignIndex(List<string> content, int document)
+        private static void AssignIndex(List<string> content, int document, ref Dictionary<string, HashSet<int>> database)
         {
             var words = FilterContent(content);
             foreach (string word in words)
             {
-                if (InvertedIndexDatabase.ContainsKey(word) == false)
+                if (database.ContainsKey(word) == false)
                 {
-                    InvertedIndexDatabase.Add(word, new HashSet<int> {document});
+                    database.Add(word, new HashSet<int> {document});
                 }
                 else
                 {
-                    InvertedIndexDatabase[word].Add(document);
+                    database[word].Add(document);
                 }
             }
         }
@@ -211,6 +284,7 @@ namespace DataSearchEngine
             var filteredContent = new List<string>(words.Count);
             foreach (string word in words)
             {
+                if (char.IsLetterOrDigit(word[0]) == false) continue;
                 string filteredWord = word.ToLower();
                 filteredContent.Add(filteredWord);
             }
